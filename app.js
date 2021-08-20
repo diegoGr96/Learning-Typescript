@@ -10,10 +10,18 @@
     // Arreglos
     var aliados = ['Mujer Maravilla', 'Acuaman', 'San', 'Flash'];
     //Enumeraciones
-    var fuerzaFlash = 5;
-    var fuerzaSuperman = 100;
-    var fuerzaBatman = 1;
-    var fuerzaAcuaman = 0;
+    var heroPowers;
+    (function (heroPowers) {
+        heroPowers[heroPowers["aquaman"] = 0] = "aquaman";
+        heroPowers[heroPowers["batman"] = 1] = "batman";
+        heroPowers[heroPowers["flash"] = 5] = "flash";
+        heroPowers[heroPowers["superman"] = 100] = "superman";
+    })(heroPowers || (heroPowers = {}));
+    ;
+    var fuerzaFlash = heroPowers.aquaman;
+    var fuerzaSuperman = heroPowers.batman;
+    var fuerzaBatman = heroPowers.flash;
+    var fuerzaAcuaman = heroPowers.superman;
     // Retorno de funciones
     function activar_batiseñal() {
         return 'activada';
@@ -24,5 +32,7 @@
     // Aserciones de Tipo
     var poder = '100';
     var largoDelPoder = poder.length;
+    var largoDelPoder2 = poder.length;
     console.log(largoDelPoder);
+    console.log(largoDelPoder2);
 })();
